@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150" width="100" height="60">
+  <!-- Background definitions -->
+  <defs>
+    <linearGradient id="pan-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#222" />
+      <stop offset="100%" stop-color="#000" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Frying Pan -->
+  <path d="M130 110 L300 110 L300 130 L130 130 Z" fill="url(#pan-gradient)" />
+  <path d="M120 110 C50 110 50 130 120 130 Z" fill="url(#pan-gradient)" />
+  
+  <!-- Drop 1 -->
+  <g class="pl__drop pl__drop--1">
+    <circle class="pl__drop-inner" cx="13" cy="60" r="2" fill="#ffa500" />
+    <animateMotion 
+      path="M 180,50 A 40,40 0 1 1 220,50 A 40,40 0 1 1 180,50" 
+      dur="2s" 
+      repeatCount="indefinite" />
+  </g>
+
+  <!-- Drop 2 -->
+  <g class="pl__drop pl__drop--2">
+    <circle class="pl__drop-inner" cx="13" cy="60" r="2" fill="#ffa500" />
+    <animateMotion 
+      path="M 190,70 A 30,30 0 1 1 230,70 A 30,30 0 1 1 190,70" 
+      dur="1.8s"
+      begin="0.6s"
+      repeatCount="indefinite" />
+  </g>
+</svg> 

@@ -1,0 +1,239 @@
+/* Responsive Styles for MakeMyRecipe Application */
+
+/* Medium screens (tablets) */
+@media screen and (max-width: 992px) {
+    .features-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .about-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-about {
+        grid-column: span 2;
+    }
+    
+    .recipe-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .recipe-ingredients {
+        padding-right: 0;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--light-gray);
+    }
+    
+    .modal-recipe-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-content {
+        max-width: 90%;
+        padding: 30px;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .hero-tagline {
+        font-size: 1.5rem;
+    }
+}
+
+/* Small screens (mobile phones) */
+@media screen and (max-width: 768px) {
+    .navbar-menu {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        flex-direction: column;
+        padding: 10px 0;
+        border-radius: 0 0 8px 8px;
+        z-index: 1000;
+    }
+    
+    .navbar-menu.active {
+        display: flex;
+        animation: slideDown 0.3s ease forwards;
+    }
+    
+    @keyframes slideDown {
+        0% {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .navbar-item {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .navbar-link {
+        display: block;
+        padding: 12px 20px;
+        border-bottom: 1px solid var(--light-gray);
+    }
+    
+    .navbar-link::after {
+        display: none;
+    }
+    
+    .navbar-link.active {
+        background-color: var(--light-cream);
+    }
+    
+    .navbar-toggle {
+        display: block;
+    }
+    
+    .navbar-logo-text {
+        font-size: 1.5rem;
+    }
+    
+    .hero {
+        height: 70vh;
+    }
+    
+    .hero-content {
+        max-width: 90%;
+        padding: 25px;
+    }
+    
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    
+    .hero-tagline {
+        font-size: 1.3rem;
+    }
+    
+    .features-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .recipe-card {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+    
+    .filters {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .filter-group {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .search-container {
+        width: 100%;
+    }
+    
+    .chatbot-container {
+        width: 300px;
+        right: 10px;
+        bottom: 80px;
+    }
+    
+    .cuisine-image {
+        height: 180px;
+    }
+    
+    .cuisine-title {
+        font-size: 1.2rem;
+    }
+    
+    .cuisine-description {
+        font-size: 0.9rem;
+    }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 480px) {
+    .hero {
+        height: 60vh;
+    }
+    
+    .hero-content {
+        max-width: 95%;
+        padding: 20px;
+    }
+    
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .hero-tagline {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-btn {
+        padding: 10px 25px;
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .form-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .form-buttons .btn {
+        width: 100%;
+    }
+    
+    .chatbot-container {
+        width: calc(100% - 20px);
+        right: 10px;
+    }
+    
+    .recipe-meta {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .recipe-title {
+        font-size: 1.5rem;
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-about {
+        grid-column: span 1;
+    }
+    
+    .cuisine-card {
+        max-width: 100%;
+    }
+    
+    .cuisine-image {
+        height: 160px;
+    }
+}

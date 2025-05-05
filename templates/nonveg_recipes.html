@@ -1,0 +1,163 @@
+{% extends 'layout.html' %}
+
+{% block title %}Non-Vegetarian Recipes - MakeMyRecipe{% endblock %}
+
+{% block content %}
+    <!-- Page Header -->
+    <section class="section" style="background-color: var(--light-cream);">
+        <div class="container text-center">
+            <h1 class="section-title">Non-Vegetarian Recipes</h1>
+            <p>Explore savory and spicy Indian non-vegetarian delicacies.</p>
+        </div>
+    </section>
+    
+    <!-- Recipes Section -->
+    <section class="section">
+        <div class="container">
+            <div class="recipes-grid">
+                {% for recipe in recipes %}
+                <div class="recipe-card {{ recipe.type }}" data-id="{{ recipe.id }}">
+                    <div class="recipe-card-image">
+                        <img src="{{ recipe.image_url }}" alt="{{ recipe.name }}">
+                    </div>
+                    <div class="recipe-card-content">
+                        <h3 class="recipe-card-title">{{ recipe.name }}</h3>
+                        <div class="recipe-card-meta">
+                            <span class="cooking-time"><i class="far fa-clock recipe-meta-icon"></i> {{ recipe.cooking_time }}</span>
+                            <span class="difficulty"><i class="fas fa-signal recipe-meta-icon"></i> Medium</span>
+                        </div>
+                        <div class="recipe-card-tags">
+                            {% for tag in recipe.tags %}
+                            <span class="recipe-tag">{{ tag }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="recipe-card-footer">
+                            <a href="#" class="btn btn-secondary recipe-card-btn view-recipe">View Recipe</a>
+                            <div class="bookmark-btn">
+                                <i class="far fa-bookmark"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="/ingredients" class="btn btn-primary">Create Your Own Recipe</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Meat Categories Section -->
+    <section class="section" style="background-color: var(--light-cream);">
+        <div class="container">
+            <h2 class="section-title">Types of Non-Veg Cuisines</h2>
+            
+            <div class="cuisine-categories">
+                <div class="cuisine-card">
+                    <div class="cuisine-image">
+                        <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Chicken Dishes">
+                    </div>
+                    <div class="cuisine-content">
+                        <h3 class="cuisine-title">Chicken Dishes</h3>
+                        <p class="cuisine-description">
+                            From the rich Butter Chicken of Punjab to the fiery Chicken Chettinad of Tamil Nadu, chicken is prepared in countless ways across India.
+                        </p>
+                        <ul class="cuisine-list">
+                            <li><i class="fas fa-utensils"></i> Butter Chicken</li>
+                            <li><i class="fas fa-utensils"></i> Chicken Tikka Masala</li>
+                            <li><i class="fas fa-utensils"></i> Chicken Biryani</li>
+                            <li><i class="fas fa-utensils"></i> Chicken Korma</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="cuisine-card">
+                    <div class="cuisine-image">
+                        <img src="https://images.unsplash.com/photo-1606471191009-63994c53433b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Lamb & Mutton">
+                    </div>
+                    <div class="cuisine-content">
+                        <h3 class="cuisine-title">Lamb & Mutton</h3>
+                        <p class="cuisine-description">
+                            Lamb and mutton dishes often feature slow-cooked meat with aromatic spices, creating deeply flavorful curries and kebabs.
+                        </p>
+                        <ul class="cuisine-list">
+                            <li><i class="fas fa-utensils"></i> Rogan Josh</li>
+                            <li><i class="fas fa-utensils"></i> Mutton Curry</li>
+                            <li><i class="fas fa-utensils"></i> Keema Matar</li>
+                            <li><i class="fas fa-utensils"></i> Seekh Kebab</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="cuisine-card">
+                    <div class="cuisine-image">
+                        <img src="https://bing.com/th?id=OSK.fdeba633d75a86404f11c95c864110c8" alt="Egg & Seafood">
+                    </div>
+                    <div class="cuisine-content">
+                        <h3 class="cuisine-title">Egg & Seafood</h3>
+                        <p class="cuisine-description">
+                            Coastal regions of India offer spectacular seafood dishes, while egg preparations like Egg Curry and Egg Biryani are popular throughout the country.
+                        </p>
+                        <ul class="cuisine-list">
+                            <li><i class="fas fa-utensils"></i> Egg Curry</li>
+                            <li><i class="fas fa-utensils"></i> Fish Curry</li>
+                            <li><i class="fas fa-utensils"></i> Prawn Masala</li>
+                            <li><i class="fas fa-utensils"></i> Goan Fish Curry</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Recipe Modal -->
+    <div class="modal">
+        <div class="modal-content">
+            <div class="close-modal"><i class="fas fa-times"></i></div>
+            
+            <div class="recipe-header">
+                <h2 class="modal-recipe-title">Recipe Title</h2>
+                <div class="recipe-meta">
+                    <div class="recipe-meta-item">
+                        <i class="far fa-clock recipe-meta-icon"></i>
+                        <span class="modal-cooking-time">30 mins</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-recipe-details">
+                <div class="modal-recipe-image">
+                    <img src="" alt="Recipe Image">
+                </div>
+                
+                <div class="modal-recipe-content">
+                    <h3>Ingredients</h3>
+                    <ul>
+                        <li>500g chicken, cut into pieces</li>
+                        <li>2 large onions, finely chopped</li>
+                        <li>2 tomatoes, pureed</li>
+                        <li>2 tbsp butter</li>
+                        <li>1 tbsp ginger-garlic paste</li>
+                        <li>1 tsp red chili powder</li>
+                        <li>1 tsp garam masala</li>
+                        <li>1/4 cup cream</li>
+                        <li>Salt to taste</li>
+                        <li>Fresh coriander for garnish</li>
+                    </ul>
+                    
+                    <h3 class="mt-4">Instructions</h3>
+                    <ol>
+                        <li>Heat butter in a pan, add onions and sauté until golden brown.</li>
+                        <li>Add ginger-garlic paste and sauté for a minute.</li>
+                        <li>Add tomato puree, red chili powder, and salt. Cook until oil separates.</li>
+                        <li>Add chicken pieces and cook until they are browned on all sides.</li>
+                        <li>Add 1 cup of water, cover and simmer until chicken is tender, about 20 minutes.</li>
+                        <li>Add cream and garam masala. Simmer for 5 minutes.</li>
+                        <li>Garnish with fresh coriander and serve hot with naan or rice.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

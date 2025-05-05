@@ -1,0 +1,134 @@
+{% extends 'layout.html' %}
+
+{% block title %}Vegetarian Recipes - MakeMyRecipe{% endblock %}
+
+{% block content %}
+    <!-- Page Header -->
+    <section class="section" style="background-color: var(--light-cream);">
+        <div class="container text-center">
+            <h1 class="section-title">Vegetarian Recipes</h1>
+            <p>Discover the rich flavors of Indian vegetarian cuisine.</p>
+        </div>
+    </section>
+    
+    <!-- Recipes Section -->
+    <section class="section">
+        <div class="container">
+            <div class="recipes-grid">
+                {% for recipe in recipes %}
+                <div class="recipe-card veg" data-id="{{ recipe.id }}">
+                    <div class="recipe-card-image">
+                        <img src="{{ recipe.image_url }}" alt="{{ recipe.name }}">
+                    </div>
+                    <div class="recipe-card-content">
+                        <h3 class="recipe-card-title">{{ recipe.name }}</h3>
+                        <div class="recipe-card-meta">
+                            <span class="cooking-time"><i class="far fa-clock recipe-meta-icon"></i> {{ recipe.cooking_time }}</span>
+                            <span class="difficulty"><i class="fas fa-signal recipe-meta-icon"></i> Medium</span>
+                        </div>
+                        <div class="recipe-card-tags">
+                            {% for tag in recipe.tags %}
+                            <span class="recipe-tag">{{ tag }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="recipe-card-footer">
+                            <a href="#" class="btn btn-secondary recipe-card-btn view-recipe">View Recipe</a>
+                            <div class="bookmark-btn">
+                                <i class="far fa-bookmark"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="/ingredients" class="btn btn-primary">Create Your Own Recipe</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Vegetarian Section -->
+    <section class="section" style="background-color: var(--light-cream);">
+        <div class="container">
+            <h2 class="section-title">Why Choose Vegetarian?</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="about-image">
+                        <img src="https://th.bing.com/th/id/OSK.HEROBDZJkW8jTwqJeO0Q8WzagRmQKZ_27H5_gfKaOuVa854?rs=1&pid=ImgDetMain" alt="Vegetarian Food">
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="about-content">
+                        <h3>The Rich Tradition of Indian Vegetarian Cuisine</h3>
+                        <p class="about-text">
+                            India has one of the world's oldest and richest vegetarian culinary traditions. From the creamy paneer dishes of North India to the coconut-infused curries of the South, vegetarian Indian food offers incredible variety and depth of flavor.
+                        </p>
+                        <p class="about-text">
+                            With a focus on whole grains, legumes, fresh vegetables, and aromatic spices, Indian vegetarian cuisine is not only delicious but also nutritionally complete.
+                        </p>
+                        
+                        <h4>Health Benefits:</h4>
+                        <ul>
+                            <li>Rich in protein from legumes and dairy</li>
+                            <li>High in dietary fiber</li>
+                            <li>Packed with antioxidants from spices</li>
+                            <li>Lower in saturated fat</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Recipe Modal -->
+    <div class="modal">
+        <div class="modal-content">
+            <div class="close-modal"><i class="fas fa-times"></i></div>
+            
+            <div class="recipe-header">
+                <h2 class="modal-recipe-title">Recipe Title</h2>
+                <div class="recipe-meta">
+                    <div class="recipe-meta-item">
+                        <i class="far fa-clock recipe-meta-icon"></i>
+                        <span class="modal-cooking-time">30 mins</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-recipe-details">
+                <div class="modal-recipe-image">
+                    <img src="" alt="Recipe Image">
+                </div>
+                
+                <div class="modal-recipe-content">
+                    <h3>Ingredients</h3>
+                    <ul>
+                        <li>2 cups paneer, cubed</li>
+                        <li>1 large onion, finely chopped</li>
+                        <li>2 tomatoes, pureed</li>
+                        <li>2 tbsp butter</li>
+                        <li>1 tbsp ginger-garlic paste</li>
+                        <li>1 tsp red chili powder</li>
+                        <li>1 tsp coriander powder</li>
+                        <li>1/2 tsp garam masala</li>
+                        <li>1/4 cup cream</li>
+                        <li>Salt to taste</li>
+                    </ul>
+                    
+                    <h3 class="mt-4">Instructions</h3>
+                    <ol>
+                        <li>Heat butter in a pan, add onions and sauté until golden brown.</li>
+                        <li>Add ginger-garlic paste and sauté for a minute.</li>
+                        <li>Add tomato puree, red chili powder, coriander powder, and salt. Cook until oil separates.</li>
+                        <li>Add paneer cubes and cook for 5 minutes.</li>
+                        <li>Add cream and garam masala. Simmer for 2-3 minutes.</li>
+                        <li>Garnish with coriander leaves and serve hot with naan or rice.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

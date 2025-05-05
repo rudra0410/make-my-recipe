@@ -1,0 +1,183 @@
+{% extends 'layout.html' %}
+
+{% block title %}Explore Recipes - MakeMyRecipe{% endblock %}
+
+{% block content %}
+    <!-- Page Header -->
+    <section class="section" style="background-color: var(--light-cream);">
+        <div class="container text-center">
+            <h1 class="section-title">Explore All Recipes</h1>
+            <p>Browse our collection of delicious Indian recipes or find exactly what you're looking for.</p>
+        </div>
+    </section>
+    
+    <!-- Filters Section -->
+    <section class="section">
+        <div class="container">
+            <div class="filters" id="recipeFilters">
+                <div class="filter-group">
+                    <label for="mealType" class="filter-label">Meal Type:</label>
+                    <select id="mealType" class="filter-select">
+                        <option value="all">All</option>
+                        <option value="breakfast">Breakfast</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="dinner">Dinner</option>
+                        <option value="snack">Snack</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="cuisine" class="filter-label">Cuisine:</label>
+                    <select id="cuisine" class="filter-select">
+                        <option value="all">All</option>
+                        <option value="north">North Indian</option>
+                        <option value="south">South Indian</option>
+                        <option value="east">East Indian</option>
+                        <option value="west">West Indian</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="cookingTime" class="filter-label">Cooking Time:</label>
+                    <select id="cookingTime" class="filter-select">
+                        <option value="all">All</option>
+                        <option value="quick">Quick (< 30 mins)</option>
+                        <option value="medium">Medium (30-60 mins)</option>
+                        <option value="long">Long (> 60 mins)</option>
+                    </select>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" id="searchRecipe" class="search-input" placeholder="Search for recipes...">
+                    <button id="searchBtn" class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            
+            <!-- Recipes Grid -->
+            <div class="recipes-grid">
+                {% for recipe in recipes %}
+                <div class="recipe-card {{ recipe.type }}" data-id="{{ recipe.id }}" data-mealtype="{{ recipe.meal_type|default('main') }}" data-cuisine="{{ recipe.cuisine|default('north') }}" data-cookingtime="{{ 'quick' if recipe.cooking_time|int < 30 else 'medium' if recipe.cooking_time|int < 60 else 'long' }}">
+                    <div class="recipe-card-image">
+                        <img src="{{ recipe.image_url }}" alt="{{ recipe.name }}">
+                    </div>
+                    <div class="recipe-card-content">
+                        <h3 class="recipe-card-title">{{ recipe.name }}</h3>
+                        <div class="recipe-card-meta">
+                            <span class="cooking-time"><i class="far fa-clock recipe-meta-icon"></i> {{ recipe.cooking_time }}</span>
+                            <span class="difficulty"><i class="fas fa-signal recipe-meta-icon"></i> Medium</span>
+                        </div>
+                        <div class="recipe-card-tags">
+                            {% for tag in recipe.tags %}
+                            <span class="recipe-tag">{{ tag }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="recipe-card-footer">
+                            <a href="#" class="btn btn-secondary recipe-card-btn view-recipe">View Recipe</a>
+                            <div class="bookmark-btn">
+                                <i class="far fa-bookmark"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <div id="noResults" class="text-center mt-4" style="display: none;">
+                <h3>No recipes found</h3>
+                <p>Try adjusting your filters or search terms</p>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="/ingredients" class="btn btn-primary">Create Your Own Recipe</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Recipe Collections Section -->
+    <section class="section" style="background-color: var(--light-cream);">
+        <div class="container">
+            <h2 class="section-title">Popular Collections</h2>
+            
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-bolt mb-3" style="font-size: 2rem; color: var(--saffron);"></i>
+                            <h3 class="card-title">Quick & Easy</h3>
+                            <p class="card-text">Ready in 30 minutes or less</p>
+                            <a href="#" class="btn btn-outline-primary">View Collection</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-fire mb-3" style="font-size: 2rem; color: var(--red);"></i>
+                            <h3 class="card-title">Spicy Dishes</h3>
+                            <p class="card-text">For those who love heat</p>
+                            <a href="#" class="btn btn-outline-primary">View Collection</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-heart mb-3" style="font-size: 2rem; color: var(--green);"></i>
+                            <h3 class="card-title">Healthy Options</h3>
+                            <p class="card-text">Nutritious and delicious</p>
+                            <a href="#" class="btn btn-outline-primary">View Collection</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-star mb-3" style="font-size: 2rem; color: var(--yellow);"></i>
+                            <h3 class="card-title">Festival Foods</h3>
+                            <p class="card-text">Special occasion dishes</p>
+                            <a href="#" class="btn btn-outline-primary">View Collection</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Recipe Modal -->
+    <div class="modal">
+        <div class="modal-content">
+            <div class="close-modal"><i class="fas fa-times"></i></div>
+            
+            <div class="recipe-header">
+                <h2 class="modal-recipe-title">Recipe Title</h2>
+                <div class="recipe-meta">
+                    <div class="recipe-meta-item">
+                        <i class="far fa-clock recipe-meta-icon"></i>
+                        <span class="modal-cooking-time">30 mins</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-recipe-details">
+                <div class="modal-recipe-image">
+                    <img src="" alt="Recipe Image">
+                </div>
+                
+                <div class="modal-recipe-content">
+                    <h3>Ingredients</h3>
+                    <ul>
+                        <li>Ingredients will load here</li>
+                    </ul>
+                    
+                    <h3 class="mt-4">Instructions</h3>
+                    <ol>
+                        <li>Instructions will load here</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

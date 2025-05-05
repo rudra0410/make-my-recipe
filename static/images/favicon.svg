@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="32" height="32">
+  <!-- Circle background -->
+  <circle cx="256" cy="256" r="250" fill="#FFF9E6" stroke="#FF9933" stroke-width="12" />
+  
+  <!-- Chef's hat -->
+  <path d="M180 150 C180 120 200 100 256 100 C312 100 332 120 332 150 C332 180 314 200 314 220 L198 220 C198 200 180 180 180 150Z" fill="white" stroke="#333333" stroke-width="8" />
+  
+  <!-- Face of logo - fork and knife -->
+  <path d="M210 230 L210 370" stroke="#138808" stroke-width="10" stroke-linecap="round" />
+  <path d="M210 280 L180 240" stroke="#138808" stroke-width="10" stroke-linecap="round" />
+  <path d="M210 280 L240 240" stroke="#138808" stroke-width="10" stroke-linecap="round" />
+  
+  <path d="M302 230 C302 230 270 270 302 320 C302 340 302 370 302 370" stroke="#FF9933" stroke-width="10" stroke-linecap="round" />
+</svg> 

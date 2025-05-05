@@ -1,0 +1,91 @@
+{% extends 'layout.html' %}
+
+{% block title %}About Us - MakeMyRecipe{% endblock %}
+
+{% block content %}
+    <!-- Page Header -->
+    <section class="section" style="background-color: var(--light-cream);">
+        <div class="container text-center">
+            <h1 class="section-title">About MakeMyRecipe</h1>
+            <p>Discover the story behind our cooking assistant and how we help you create magic in your kitchen.</p>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="section">
+        <div class="container">
+            <div class="about-section">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Indian Cooking">
+                </div>
+                
+                <div class="about-content">
+                    <h2 class="about-title">Our Mission</h2>
+                    <p class="about-text">
+                        MakeMyRecipe was born from a simple idea: to help people create delicious Indian meals with whatever ingredients they have at home. We understand that sometimes you're missing that one ingredient from a recipe, or maybe you have a refrigerator full of items but no idea what to cook. That's where we come in!
+                    </p>
+                    <p class="about-text">
+                        Our application suggests personalized Indian recipes based on the ingredients you already have, eliminating food waste and inspiring culinary creativity in your kitchen.
+                    </p>
+                    <p class="about-text">
+                        Whether you're an experienced cook looking to try something new or a beginner wanting to explore Indian cuisine, MakeMyRecipe is your trusted cooking companion.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- AI Section -->
+    <section class="section" style="background-color: var(--light-cream);">
+        <div class="container">
+            <h2 class="section-title">Powered by AI</h2>
+            
+            <div class="about-gemini">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h3>How Gemini AI Powers Our Recipe Suggestions</h3>
+                        <p class="about-text">
+                            MakeMyRecipe uses Google's advanced Gemini AI to analyze your available ingredients and suggest the perfect Indian recipes for you.
+                        </p>
+                        <p class="about-text">
+                            The Gemini AI model has been trained on thousands of authentic Indian recipes, cooking techniques, and ingredient combinations. When you input your ingredients, our AI analyzes:
+                        </p>
+                        <ul>
+                            <li>Traditional Indian flavor profiles and spice combinations</li>
+                            <li>Regional cooking techniques from across India</li>
+                            <li>Ingredient substitutions and complementary flavors</li>
+                            <li>Cooking times and preparation methods</li>
+                        </ul>
+                        <p class="mt-3">
+                            This allows us to provide you with recipes that are not only delicious but also authentic to Indian culinary traditions.
+                        </p>
+                    </div>
+                    
+                    <div class="col-md-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Benefits of AI-Powered Recipes</h4>
+                                <ul>
+                                    <li>Personalized to your available ingredients</li>
+                                    <li>Adapts to what you have, not what you don't</li>
+                                    <li>Suggests creative combinations you might not have considered</li>
+                                    <li>Learns from user interactions to improve recommendations</li>
+                                    <li>Provides detailed instructions tailored to your needs</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="section" style="background-color: var(--saffron); color: white;">
+        <div class="container text-center">
+            <h2 class="section-title" style="color: white;">Ready to Get Cooking?</h2>
+            <p class="mb-4">Try our AI-powered recipe generator today and turn your ingredients into delicious Indian meals!</p>
+            <a href="/ingredients" class="btn btn-light btn-lg">Get Started Now</a>
+        </div>
+    </section>
+{% endblock %}

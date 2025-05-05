@@ -1,0 +1,190 @@
+{% extends 'layout.html' %}
+
+{% block title %}MakeMyRecipe - Turn Your Ingredients into Magic!{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">MakeMyRecipe</h1>
+            <p class="hero-tagline">Turn Your Ingredients into Magic!</p>
+            <a href="/ingredients" class="btn btn-primary hero-btn">Get Started</a>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="section features">
+        <div class="container">
+            <h2 class="section-title text-center">How It Works</h2>
+            
+            <div class="features-container">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-list"></i>
+                    </div>
+                    <h3 class="feature-title">1. Add Your Ingredients</h3>
+                    <p>Enter the ingredients you have on hand, and we'll find the perfect recipe for you.</p>
+                </div>
+                
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3 class="feature-title">2. AI Magic Happens</h3>
+                    <p>Our AI assistant analyzes your ingredients and suggests the best Indian recipes.</p>
+                </div>
+                
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="feature-title">3. Start Cooking</h3>
+                    <p>Follow our easy step-by-step instructions and enjoy your delicious meal!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Top Picks Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Top Picks</h2>
+            
+            <div class="recipes-grid">
+                <div class="recipe-card veg" data-id="1">
+                    <div class="recipe-card-image">
+                        <img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Paneer Butter Masala">
+                    </div>
+                    <div class="recipe-card-content">
+                        <h3 class="recipe-card-title">Paneer Butter Masala</h3>
+                        <div class="recipe-card-meta">
+                            <span class="cooking-time"><i class="far fa-clock recipe-meta-icon"></i> 30 mins</span>
+                            <span class="difficulty"><i class="fas fa-signal recipe-meta-icon"></i> Medium</span>
+                        </div>
+                        <div class="recipe-card-tags">
+                            <span class="recipe-tag">North Indian</span>
+                            <span class="recipe-tag">Main Course</span>
+                            <span class="recipe-tag">Rich</span>
+                        </div>
+                        <div class="recipe-card-footer">
+                            <a href="#" class="btn btn-secondary recipe-card-btn view-recipe">View Recipe</a>
+                            <div class="bookmark-btn">
+                                <i class="far fa-bookmark"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="recipe-card chicken" data-id="4">
+                    <div class="recipe-card-image">
+                        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Butter Chicken">
+                    </div>
+                    <div class="recipe-card-content">
+                        <h3 class="recipe-card-title">Butter Chicken</h3>
+                        <div class="recipe-card-meta">
+                            <span class="cooking-time"><i class="far fa-clock recipe-meta-icon"></i> 45 mins</span>
+                            <span class="difficulty"><i class="fas fa-signal recipe-meta-icon"></i> Medium</span>
+                        </div>
+                        <div class="recipe-card-tags">
+                            <span class="recipe-tag">North Indian</span>
+                            <span class="recipe-tag">Main Course</span>
+                            <span class="recipe-tag">Popular</span>
+                        </div>
+                        <div class="recipe-card-footer">
+                            <a href="#" class="btn btn-secondary recipe-card-btn view-recipe">View Recipe</a>
+                            <div class="bookmark-btn">
+                                <i class="far fa-bookmark"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="recipe-card veg" data-id="2">
+                    <div class="recipe-card-image">
+                        <img src="https://apollosugar.com/wp-content/uploads/2018/12/Masala-Dosa.jpg" alt="Masala Dosa">
+                    </div>
+                    <div class="recipe-card-content">
+                        <h3 class="recipe-card-title">Masala Dosa</h3>
+                        <div class="recipe-card-meta">
+                            <span class="cooking-time"><i class="far fa-clock recipe-meta-icon"></i> 45 mins</span>
+                            <span class="difficulty"><i class="fas fa-signal recipe-meta-icon"></i> Hard</span>
+                        </div>
+                        <div class="recipe-card-tags">
+                            <span class="recipe-tag">South Indian</span>
+                            <span class="recipe-tag">Breakfast</span>
+                            <span class="recipe-tag">Popular</span>
+                        </div>
+                        <div class="recipe-card-footer">
+                            <a href="#" class="btn btn-secondary recipe-card-btn view-recipe">View Recipe</a>
+                            <div class="bookmark-btn">
+                                <i class="far fa-bookmark"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="/explore" class="btn btn-primary">Explore All Recipes</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="section" style="background-color: var(--light-cream);">
+        <div class="container text-center">
+            <h2 class="section-title">Ready to Cook Something Amazing?</h2>
+            <p class="mb-4">Let's turn those ingredients in your kitchen into a delicious Indian meal!</p>
+            <a href="/ingredients" class="btn btn-primary">Create Your Recipe</a>
+        </div>
+    </section>
+    
+    <!-- Recipe Modal -->
+    <div class="modal">
+        <div class="modal-content">
+            <div class="close-modal"><i class="fas fa-times"></i></div>
+            
+            <div class="recipe-header">
+                <h2 class="modal-recipe-title">Recipe Title</h2>
+                <div class="recipe-meta">
+                    <div class="recipe-meta-item">
+                        <i class="far fa-clock recipe-meta-icon"></i>
+                        <span class="modal-cooking-time">30 mins</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-recipe-details">
+                <div class="modal-recipe-image">
+                    <img src="" alt="Recipe Image">
+                </div>
+                
+                <div class="modal-recipe-content">
+                    <h3>Ingredients</h3>
+                    <ul>
+                        <li>2 cups paneer, cubed</li>
+                        <li>1 large onion, finely chopped</li>
+                        <li>2 tomatoes, pureed</li>
+                        <li>2 tbsp butter</li>
+                        <li>1 tbsp ginger-garlic paste</li>
+                        <li>1 tsp red chili powder</li>
+                        <li>1 tsp coriander powder</li>
+                        <li>1/2 tsp garam masala</li>
+                        <li>1/4 cup cream</li>
+                        <li>Salt to taste</li>
+                    </ul>
+                    
+                    <h3 class="mt-4">Instructions</h3>
+                    <ol>
+                        <li>Heat butter in a pan, add onions and sauté until golden brown.</li>
+                        <li>Add ginger-garlic paste and sauté for a minute.</li>
+                        <li>Add tomato puree, red chili powder, coriander powder, and salt. Cook until oil separates.</li>
+                        <li>Add paneer cubes and cook for 5 minutes.</li>
+                        <li>Add cream and garam masala. Simmer for 2-3 minutes.</li>
+                        <li>Garnish with coriander leaves and serve hot with naan or rice.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

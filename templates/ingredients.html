@@ -1,0 +1,137 @@
+{% extends 'layout.html' %}
+
+{% block title %}Create Recipe - MakeMyRecipe{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/recipe.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    <!-- Page Header -->
+    <section class="section" style="background-color: var(--light-cream);">
+        <div class="container text-center">
+            <h1 class="section-title">Create Your Recipe</h1>
+            <p>Enter the ingredients you have, and we'll suggest the perfect Indian dish!</p>
+        </div>
+    </section>
+    
+    <!-- Ingredient Input Section -->
+    <section class="section">
+        <div class="container">
+            <div class="ingredient-form" id="ingredientForm">
+                <div class="mb-4">
+                    <label for="ingredientInput" class="form-label">What's in your kitchen?</label>
+                    <div class="input-container">
+                        <input type="text" id="ingredientInput" class="ingredient-input" placeholder="Type an ingredient (e.g., potato, onion, chicken)">
+                        <button id="addIngredient" class="add-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div id="ingredientError" class="text-danger mt-2" style="display: none;"></div>
+                </div>
+                
+                <div id="ingredientsList" class="ingredients-list"></div>
+                
+                <div class="form-buttons">
+                    <button id="suggestRecipe" class="btn btn-primary" disabled>Suggest Recipe</button>
+                    <button id="surpriseMe" class="btn btn-secondary">Surprise Me</button>
+                    <button id="clearForm" class="btn btn-danger">Clear</button>
+                </div>
+            </div>
+            
+            <!-- Loading Spinner -->
+            <div id="loadingSpinner" class="loading-spinner">
+                <div class="spinner"></div>
+                <p class="mt-3">Finding the perfect recipe for you...</p>
+            </div>
+            
+            <!-- Recipe Result -->
+            <div id="recipeResult" class="recipe-result">
+                <div class="recipe-header">
+                    <h2 class="recipe-title">Recipe Name</h2>
+                    <div class="veg-icon"></div>
+                </div>
+                
+                <div class="recipe-meta">
+                    <div class="recipe-meta-item">
+                        <i class="far fa-clock recipe-meta-icon"></i>
+                        <span class="cooking-time">30 mins</span>
+                    </div>
+                    <div class="recipe-meta-item">
+                        <i class="fas fa-map-marker-alt recipe-meta-icon"></i>
+                        <span class="cuisine-type">North Indian</span>
+                    </div>
+                    <div class="recipe-meta-item">
+                        <i class="fas fa-utensils recipe-meta-icon"></i>
+                        <span class="meal-type">Main Course</span>
+                    </div>
+                </div>
+                
+                <div class="recipe-content">
+                    <div class="recipe-ingredients">
+                        <h3>Ingredients</h3>
+                        <ul></ul>
+                        
+                        <div class="missing-ingredients mt-4" style="display: none;">
+                            <h4>Missing Ingredients</h4>
+                            <p>You might need to add these to complete the recipe:</p>
+                            <ul></ul>
+                        </div>
+                    </div>
+                    
+                    <div class="recipe-instructions">
+                        <h3>Instructions</h3>
+                        <ol></ol>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <button id="tryAnotherRecipe" class="btn btn-secondary">Try Another Recipe</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Recipe Tips Section -->
+    <section class="section" style="background-color: var(--light-cream);">
+        <div class="container">
+            <h2 class="section-title">Recipe Tips</h2>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">
+                                <i class="fas fa-lightbulb" style="color: var(--saffron);"></i>
+                                Be Specific
+                            </h3>
+                            <p class="card-text">Instead of just typing "meat," specify "chicken" or "lamb" for better recipe suggestions.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">
+                                <i class="fas fa-balance-scale" style="color: var(--green);"></i>
+                                Add Spices
+                            </h3>
+                            <p class="card-text">Include any spices you have, like turmeric, cumin, or garam masala for authentic Indian recipes.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">
+                                <i class="fas fa-random" style="color: var(--red);"></i>
+                                Try "Surprise Me"
+                            </h3>
+                            <p class="card-text">Let us surprise you with a random recipe using common Indian ingredients.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
